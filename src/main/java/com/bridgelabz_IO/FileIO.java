@@ -20,4 +20,33 @@ public class FileIO {
             e.printStackTrace();
         }
     }
+    public static Map<String,  String> readData() {
+        Map<String, String> mapFileContents = new HashMap<>();
+        BufferedReader br = null;
+        try {
+            File file = new File("Address Book.txt");
+
+            br = new BufferedReader(new FileReader(file));
+
+            String line ;
+            while ((line = br.readLine()) != null) {
+                String[] parts = line.split(":");
+                String bookName = parts[0].trim();
+                String name = parts[1].trim();
+                mapFileContents.put(bookName, name);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                } catch (Exception e) {
+                    System.out.println();
+                }
+            }
+        }
+        return mapFileContents;
+    }
 }

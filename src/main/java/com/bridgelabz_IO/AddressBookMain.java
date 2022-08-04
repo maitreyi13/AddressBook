@@ -38,9 +38,9 @@ public class AddressBookMain {
                 case 4 : FileIO fileIO = new FileIO();
                     fileIO.writeData(addressBookMap);
                     break;
-//                case 5 :
-//                    System.out.println(FileIO.readData());
-//                    break;
+                case 5 :
+                    System.out.println(FileIO.readData());
+                    break;
                 case 6:
                     sc.close();
                     System.out.println("Thank You!!");
